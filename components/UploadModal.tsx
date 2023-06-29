@@ -1,3 +1,5 @@
+"use client";
+
 import useUploadModal from "@/hooks/useUploadModal";
 import Modal from "./Modal";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
