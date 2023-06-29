@@ -4,6 +4,7 @@ import Input from "./Input";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import qs from "query-string";
+import { AiOutlineCloseCircle } from "react-icons/ai";
 
 interface SearchInputProps {}
 
@@ -27,12 +28,27 @@ const SearchInput: React.FC<SearchInputProps> = ({}) => {
   const handleChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
     setValue(e.target.value);
   };
+
+  const handleDelete: React.MouseEventHandler = () => {
+    setValue("");
+  };
+
   return (
-    <Input
-      onChange={handleChange}
-      value={value}
-      placeholder="What do you want to listen to?"
-    />
+    <div className="relative">
+      <Input
+        onChange={handleChange}
+        value={value}
+        placeholder="What do you want to listen to?"
+      />
+      {value.length !== 0 && (
+        <button
+          onClick={handleDelete}
+          className="absolute right-5 top-[12px] transition hover:text-neutral-400"
+        >
+          <AiOutlineCloseCircle size={24} />
+        </button>
+      )}
+    </div>
   );
 };
 
