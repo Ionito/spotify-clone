@@ -14,7 +14,7 @@ const SongItem: React.FC<SongItemProps> = ({ data, onClick }) => {
   const imageUrl = useLoadImage(data);
   return (
     <div
-      onClick={onClick(data.id)}
+      onClick={() => onClick(data.id)}
       className="group relative flex cursor-pointer flex-col items-center justify-center gap-x-4 overflow-hidden rounded-md bg-neutral-400/5 p-3 transition hover:bg-neutral-400/10"
     >
       <div className="relative aspect-square h-full w-full overflow-hidden rounded-md">
