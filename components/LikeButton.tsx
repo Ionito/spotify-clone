@@ -50,6 +50,8 @@ const LikeButton: React.FC<LikeButtonProps> = ({ songId }) => {
         toast.success("Song added!");
       }
     }
+
+    router.refresh();
   };
 
   useEffect(() => {
