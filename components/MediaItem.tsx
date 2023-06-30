@@ -18,7 +18,10 @@ const MediaItem: React.FC<MediaItemProps> = ({ data, onClick }) => {
   };
 
   return (
-    <div className="flex w-full cursor-pointer items-center gap-x-3 rounded-md p-2 hover:bg-neutral-800/50">
+    <div
+      onClick={handleClick}
+      className="flex w-full cursor-pointer items-center gap-x-3 rounded-md p-2 hover:bg-neutral-800/50"
+    >
       <div className="relative min-h-[48px] min-w-[48px] overflow-hidden rounded-md">
         <Image src={imageUrl} fill className="object-cover" alt="media image" />
       </div>
