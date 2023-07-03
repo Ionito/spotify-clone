@@ -14,7 +14,6 @@ const MediaItem: React.FC<MediaItemProps> = ({ data, onClick }) => {
 
   const handleClick = () => {
     if (onClick) return onClick(data.id);
-    //TODO: turn on player
   };
 
   return (

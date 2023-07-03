@@ -16,9 +16,9 @@ interface PlayerContentProps {
 
 const PlayerContent: React.FC<PlayerContentProps> = ({ song, songUrl }) => {
   const player = usePlayer();
-  const [volume, setVolume] = useState(1);
+
   const [play, { pause, sound }] = useSound(songUrl, {
-    volume,
+    volume: player.volume,
     onplay: () => {
       setIsPlaying(true);
     },
@@ -33,7 +33,7 @@ const PlayerContent: React.FC<PlayerContentProps> = ({ song, songUrl }) => {
   const [isPlaying, setIsPlaying] = useState(false);
 
   const Icon = isPlaying ? BsPauseFill : BsPlayFill;
-  const VolumeIcon = volume === 0 ? HiSpeakerXMark : HiSpeakerWave;
+  const VolumeIcon = player.volume === 0 ? HiSpeakerXMark : HiSpeakerWave;
 
   useEffect(() => {
     sound?.play();
@@ -50,10 +50,10 @@ const PlayerContent: React.FC<PlayerContentProps> = ({ song, songUrl }) => {
   };
 
   const toggleMute = () => {
-    if (volume !== 0) {
-      setVolume(0);
+    if (player.volume !== 0) {
+      player.setVolume(0);
     } else {
-      setVolume(1);
+      player.setVolume(1);
     }
   };
 
@@ -132,9 +132,9 @@ const PlayerContent: React.FC<PlayerContentProps> = ({ song, songUrl }) => {
           />
           <Slider
             onChange={(newVol: number) => {
-              setVolume(newVol);
+              player.setVolume(newVol);
             }}
-            value={volume}
+            value={player.volume}
           />
         </div>
       </div>

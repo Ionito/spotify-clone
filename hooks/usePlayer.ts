@@ -6,6 +6,8 @@ interface PlayerStore {
   setId: (id: string) => void;
   setIds: (ids: string[]) => void;
   reset: () => void;
+  volume: number;
+  setVolume: (volume: number) => void;
 }
 
 const usePalyer = create<PlayerStore>((set) => ({
@@ -14,6 +16,8 @@ const usePalyer = create<PlayerStore>((set) => ({
   setId: (id: string) => set({ activeId: id }),
   setIds: (ids: string[]) => set({ ids }),
   reset: () => set({ ids: [], activeId: undefined }),
+  volume: 1,
+  setVolume: (volume: number) => set({ volume }),
 }));
 
 export default usePalyer;
