@@ -9,8 +9,6 @@ const useOnPlay = (songs: Song[]) => {
   const authModal = useAuthModal();
 
   const onPlay = (id: string) => {
-    console.log("🚀 ~ file: useOnPlay.ts:12 ~ onPlay ~ id:", id);
-
     if (!user) {
       authModal.onOpen();
     }
